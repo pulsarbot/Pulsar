@@ -4,11 +4,11 @@
     "botName": "Pulsar",
 	"botHomepage": "https://pulsar.severepain.xyz",
     "cban": {
-        "moduleEnabled": false,
+        "moduleEnabled": true,
         "cbanReportChannelID": "544276391080886293"
     },
-    "antiDoxEnabled": false,
-    "inviteURL": "https://discordapp.com/api/oauth2/authorize?client_id=554088766763958285&permissions=8&scope=bot",
+    "antiDoxEnabled": true,
+    "inviteURL": "https://discordapp.com/oauth2/authorize?client_id=554088766763958285&permissions=8&scope=bot",
     "githubRepo": "https://github.com/pulsarbot",
     "prefix": "ps!",
     "botChannels": {

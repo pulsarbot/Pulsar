@@ -29,7 +29,7 @@ export default class Help extends Command {
 		false, //DELETE ON FINISH
 		true, //SIMULATE TYPING
 		0, //SPAM TIMEOUT
-		["info", "commands"] //ALIASES
+		["info", "commands", "invite"] //ALIASES
 	);
 
 	/**
@@ -47,7 +47,7 @@ export default class Help extends Command {
 		super.assertArgCount(args.length, message);
 
 		//Reply with the address of the Pulsar homepage
-		await message.reply(`:information_source: **${bot.config.botName} Help**\n- Configuration: ${bot.config.botHomepage}/servers\n- Commands List: ${bot.config.botHomepage}/commands`);
+		await message.reply(`:information_source: **${bot.config.botName} Help**\n- Configuration: ${bot.config.botHomepage}/servers\n- Commands List: ${bot.config.botHomepage}/commands\n- Invite to your guild: ${bot.config.inviteURL}`);
 
 		//End execution by resolving the promise
 		return Promise.resolve(true);
