@@ -3,7 +3,7 @@
 #################
 
 # Private keys, code, and tokens
-secret.env
+#secret.env
 
 # Temporary data
 tempdata/
@@ -15,6 +15,7 @@ dist/
 data/blacklistedNicknames.json
 data/doxEvents.json
 src/web/.env
+data/modules/bh/lastSync.txt
 data/community-bans.json
 
 # WIP
@@ -22,12 +23,18 @@ src/modules/ocr/
 src/modules/ocr/*.*
 src/modules/smartresponder/*.*
 src/modules/smartresponder/
+TODO LIST.txt
 
 # Guild configs
+data/guilds/**
+data/guilds/**/*.txt
 data/guilds/**/*.json
+data/guilds
 
 # OBH modules and antidox credentials
-data/modules/antidox/*.json
+data/modules/**
+data/modules/**/*.json
+data/modules/**/*.txt
 
 # Private Code
 src/modules/BHModules/blacklistedUserFilter.ts
