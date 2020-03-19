@@ -39,7 +39,7 @@ We do not support self-hosting of the bot and probably will not help you with se
 
 Special thanks to Kaimund600 - https://kaimund600.org + https://github.com/Kaimund600
 
-Special thanks to Spotlightsrule - https://spotrealms.com + https://github.com/Spotlightsrule
+Special thanks to Spotlightsrule - https://github.com/Spotlightsrule
 
 ---
 Kaimund600's Bots that influenced this one:
