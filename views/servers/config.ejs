@@ -1,0 +1,52 @@
+<% /*
+    config.ejs
+    Main configuration page for server admins to control how Pulsar works on their server.
+    Copyright (C) 2020 The Pulsar Project
+*/ %>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Configuration - <%- server.name  %> - Pulsar</title>
+    <%- include('../templates/head.ejs') %>
+  </head>
+  <body>
+    <%- include('../templates/header.ejs') %>
+    <%- include('../templates/server.ejs') %>
+    <!-- START TAB -->
+    <div class='span9'>
+        <h2>Server Configuration</h2>
+        <% 
+          var updateMessage = '';
+          if (req.query.code === '0') {
+            updateMessage += '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">&times;</button>✅ <strong>Server Configuration updated.</strong></div>';
+          }
+        %>
+        <%- updateMessage %>
+        <form id='configForm' method='POST' action='/server/config?id=<%- server.id %>'>
+          <fieldset>
+            <p>Server configuration options will go here.</p>
+            <div class='form-actions'>
+              <button type='submit' class='btn btn-primary' disabled>Save changes</button>
+              <button type='button' onClick='window.location = "/server/config?id=<%- server.id %>"' class='btn'>Cancel</button>
+            </div>
+
+          </fieldset>
+        </form>
+        <!-- Form Verification -->
+        <script>
+          // Don't submit unless Prefix is OK
+          $('#configForm').submit(function() {
+            var formValid = false
+            return formValid
+          })
+        </script>
+    </div>
+    <!-- END TAB -->
+    <script>
+      // Highlight active tab
+      document.getElementById('configTabItem').setAttribute('class', 'active');
+    </script>
+    <%- include('../templates/footer.ejs') %>
+  </body>
+</html>

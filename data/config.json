@@ -1,0 +1,24 @@
+{
+    "ownerID": "258757935377809409",
+    "botAdmins": ["362938646304653312", "258757935377809409", "271910520980897792", "527144716400066560", "294239711780798465", "671871726191378432"],
+    "botName": "Pulsar",
+	"botHomepage": "https://pulsar.severepain.xyz",
+    "cban": {
+        "moduleEnabled": true,
+        "cbanReportChannelID": "544276391080886293"
+    },
+    "antiDoxEnabled": false,
+    "inviteURL": "https://discordapp.com/api/oauth2/authorize?client_id=554088766763958285&permissions=8&scope=bot",
+    "githubRepo": "https://github.com/pulsarbot",
+    "prefix": "ps!",
+    "botChannels": {
+        "doxeventchannelid": "576819709589192704",
+        "guildLoggingChannelID": "556918928635330624",
+        "botWideActions": "554104435635126283"
+    },
+    "OBHGuildID": "451248270409334796",
+    "OBHLogsID": "451366146898264066",
+    "cleverbotOnMentions": true,
+    "plugins": true,
+	"useMobileStatus": true
+}

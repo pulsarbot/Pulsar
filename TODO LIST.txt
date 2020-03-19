@@ -1,0 +1,28 @@
+- Server Punishments tab in web panel
+- Add blacklisted user support
+- Add checks to see if the bot has permission to run commands automatically
+- Cleanup the web panel
+- Add per-guild command disabling
+- Add per-guild prefix changes
+- Centralize the Reddit fetch module
+- Add "EnumUtil" class and add the enum looper from the command type enum
+- Fix typing on commands
+- Add better event handler (Bukkit-style)
+- Add antidox add/remove command with support for changing the entry type
+- Add "secondary category" support (eg: fun commands can have the NSFW tag which flags the fun command as having the possibility to produce NSFW or a moderation command being for fun)
+- Add Pipeline support to auto-build new Pulsar commits via Jenkins (https://medium.com/@mosheezderman/how-to-set-up-ci-cd-pipeline-for-a-node-js-app-with-jenkins-c51581cc783c)
+- Add pagination support (fork the module in NSBTS)
+- Add checks for if the command can be run in DMs (checks plus field)
+- Add automated appeal process for banned users 
+	- ask for one-time appeal
+	- appeal gets sent to appeals
+	- decision made based on how many staff there are
+	- X for deny, check for accept
+	- Ties result in an automatic denial
+- Centralize the ban and mute system into their own API's
+- Better guild class that can handle guild IO files
+- Possible support for SQLite (smaller files)
+- Centralized IO datastructutre for guild management (synced files)
+- Per-channel blacklist for using the bot
+	- Per-command blacklist too (only allowing certain commands in certain channels)
+- View punishment history and active punishments in the web panel and in a DM

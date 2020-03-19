@@ -1,0 +1,40 @@
+<% /*
+    server.ejs
+    Template for the Server Control Panel
+    Copyright (C) 2020 The Pulsar Project
+*/ %>
+
+<div class="span12">
+	<table>
+		<tr>
+			<td><img width="64px" height="64px" src="<%- `${server.iconURL()}?${new Date().getTime()}` %>" /></td>
+			<td style="width: 4px;"></td>
+        	<td><h1><%- server.name %></h1></td>
+		</tr>
+	</table>
+</div>
+
+<div class="row">
+	<div class="span3">
+		<div class="card card-body bg-light" style="padding: 8px 0;">
+			<ul class="nav flex-column">
+				<li class="nav-item nav-header">Information</li>
+				<li class="nav-item"><a class="nav-link" href="/server?id=<%- server.id %>">Summary</a></li>
+				<%
+					var guildConfigTabs = '';
+					if(discord.config.botAdmins.includes(user.id)){
+						guildConfigTabs += '<li class="nav-item nav-header">Configuration</li>';
+						guildConfigTabs += `<li class="nav-item"><a class="nav-link" href="/server/config?id=${server.id}">Configuration</a></li>`;
+					}
+					else {
+					const member = server.members.cache.find(member => member.id === user.id);
+					if(member.hasPermission('MANAGE_GUILD')){
+						guildConfigTabs += '<li class="nav-item nav-header">Configuration</li>';
+						guildConfigTabs += `<li class="nav-item"><a class="nav-link" href="/server/config?id=${server.id}">Configuration</a></li>`;
+					} 
+				}
+				%>
+				<%- guildConfigTabs %>
+			  </ul>
+		</div>
+	</div>

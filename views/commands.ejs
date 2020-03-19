@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+   <html lang="en">
+      <head>
+      
+         <!-- Defining the inputted variables -->
+         <script type='text/javascript'>
+            var cmdTemp =<%-JSON.stringify(commands)%>;
+            var DiscordPerms =<%-JSON.stringify(discordjsperms)%>;
+         </script>
+	 
+         <!-- Required meta tags -->
+         <meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+         <title>Pulsar Commands</title>
+         <h1>Pulsar Commands List</h1>
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+         <!-- Bootstrap -->
+	 
+      </head>
+      
+      <body>
+         <style>
+            html, body {
+            font-family: arial;
+            }
+            table {
+            border-collapse: collapse;
+            }
+            table tr td {
+            border: 1px solid #fff;
+            padding: 10px;
+            }
+            table th {
+            border: 1px solid #fff;
+            padding: 10px;
+            }
+			
+			/*
+
+Timeless Template 
+
+http://www.templatemo.com/tm-517-timeless
+
+*/
+
+body {
+    background-color: #333333;
+    color: #FFFFFF;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 300;
+}
+
+h3 {
+    font-size: 1.3rem;
+}
+
+.tm-site-logo {
+    width: 40px;
+    height: 40px;
+    border: 7px solid white;
+    transform: rotate(45deg);
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.tm-site-title {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 0;
+}
+
+.tm-site-header {
+    padding-top: 45px;
+    padding-bottom: 45px;
+    margin-bottom: 0;
+}
+
+#tm-video-loader {
+    border: 5px solid #f3f3f3;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+    border-top: 5px solid #555;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    margin: auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.tm-video-container {
+    position: relative;
+    max-width: 1280px;
+    max-height: 640px;
+    overflow-y: hidden;
+}
+
+.tm-video-text {
+    display: inline-block;
+}
+
+.tm-welcome-video {
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    background-color: black;
+    background-size: cover;
+    transition: 1s opacity;
+}
+
+.tm-video-text-overlay {
+    position: absolute;
+    left: 60%;
+    bottom: 30px;
+}
+.tm-video-text-overlay h1 {
+	font-size: 3.4rem;
+}
+.tm-welcome-text {
+    margin-top: 65px;
+    margin-bottom: 65px;
+    font-size: 2.2rem;
+}
+
+.tm-font-400 {
+    font-weight: 400;
+}
+
+.tm-text-light-gray {
+    color: #CDCDCD;
+}
+
+.tm-text-gray {
+    color: #CCCCCC;
+}
+
+.tm-text-white {
+    color: #FFFFFF;
+}
+
+a.tm-text-white:hover,
+a.tm-text-white:focus {
+    color: #FFFFFF;
+}
+
+.tm-text-green {
+    color: #99CC66;
+}
+
+.tm-text-cyan {
+    color: #33CCCC;
+}
+
+.tm-text-yellow {
+    color: #FFFF66;
+}
+
+.tm-text-orange {
+    color: #CC9966;
+}
+
+.tm-bg-dark {
+    background-color: #262626;
+}
+
+.tm-bg-dark-light {
+    background-color: #404040;
+}
+
+hr {
+    border-color: #666666;
+    max-width: 70%;
+}
+
+.tm-video-iframe {
+    height: auto;
+}
+
+.tm-timeline-item {
+    margin-left: 70px;
+}
+
+.tm-timeline-item-inner {
+    display: flex;
+    align-items: center;
+}
+
+.tm-img-timeline {
+    width: 160px;
+    height: 160px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.tm-timeline-connector {
+    width: 55px;
+    height: 3px;
+    background-color: #404040;
+}
+
+.tm-timeline-connector-vertical {
+    height: 60px;
+    width: 3px;
+    background-color: #404040;
+    margin-left: 260px;
+}
+
+.tm-timeline-description {
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 20px;
+    padding: 35px 40px;
+    max-width: 712px;
+}
+
+.tm-section-mb {
+    margin-bottom: 85px;
+}
+
+.tm-section-mt {
+    margin-top: 85px;
+}
+
+.tm-contact-form {
+    max-width: 500px;
+}
+
+.form-control {
+    border-radius: 0;
+    border-color: #666666;
+	color: #CCC;
+    background: transparent;
+    padding: 12px 15px;
+}
+
+.form-control::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #CCCCCC;
+    opacity: 1;
+    /* Firefox */
+}
+
+.form-control:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #DDDDDD;
+}
+
+.form-control::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #DDDDDD;
+}
+
+iframe {
+    max-width: 100%;
+}
+
+#google-map {
+    max-width: 500px;
+    width: 100%;
+    height: 300px;
+}
+
+.tm-btn-send {
+    border-radius: 0;
+    font-size: 1.1rem;
+    padding: 12px 50px;
+    background: transparent;
+    border: 1px solid #CCCCCC;
+    color: #CCCCCC;
+}
+
+.tm-btn-send:hover,
+.tm-btn-send:focus {
+    background: #CCCCCC;
+    color: #333333;
+}
+
+.form-control:focus {
+    background-color: transparent;
+    border-color: #CCCCCC;
+	color: #FFF;
+    box-shadow: 0 0 0 0.2rem #cccccc14;
+}
+
+input,
+textarea,
+[contenteditable] {
+    caret-color: #FFFFFF;
+}
+
+p {
+    line-height: 1.9;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1310px;
+    }
+    .tm-container-2 {
+        max-width: 1170px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .tm-video-container {
+        max-width: 932px;
+        max-height: 466px;
+    }
+    .tm-video-text-overlay {
+        left: 60%;
+    }
+}
+
+@media (max-width: 991px) {
+    #google-map,
+    .tm-contact-form {
+        max-width: 100%;
+    }
+    .google-map-iframe {
+        width: 100%;
+    }
+    .tm-video-container {
+        max-width: 690px;
+        max-height: 345px;
+    }
+    .tm-video-text-overlay {
+        left: 45%;
+    }
+	.tm-video-text-overlay h1 {
+		font-size: 2.8rem;
+	}
+    .tm-timeline-item {
+        margin-left: 25px;
+    }
+}
+
+@media (max-width: 767px) {
+    .tm-timeline-item {
+        margin-left: 0;
+    }
+    .tm-video-container {
+        max-width: 510px;
+        max-height: 255px;
+    }
+    .tm-video-container,
+    .tm-welcome-video {
+        min-height: 220px;
+    }
+    .tm-video-text-overlay {
+        left: 25%;
+    }
+}
+
+@media (max-width: 584px) {
+    .tm-timeline-item-inner {
+        flex-direction: column;
+    }
+    .tm-timeline-connector {
+        width: 3px;
+        height: 55px;
+    }
+    .tm-timeline-connector-vertical {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 575px) {
+    .container {
+        max-width: 540px;
+    }
+    .tm-video-text-overlay {
+        left: 30%;
+    }
+    .tm-video-text-overlay h1 {
+        font-size: 1.8rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .tm-video-container {
+        overflow-x: hidden;
+    }
+    .tm-welcome-video {
+        min-width: auto;
+        max-width: 125%;
+    }
+}
+         </style>
+	 
+         <script>
+            function makeCommandTable(tableID, cmdArr){
+            		for(var ii = 0; ii < cmdArr.length; ii++){
+					    
+						let table = document.getElementById(tableID);
+            
+            			let row = table.insertRow(ii + 1)
+            
+            			let currentCmd = cmdArr[ii]
+            
+            			let cmdNameRow = row
+            			let tempCellCmdName = cmdNameRow.insertCell(0)
+            
+            			let cmdAliasesRow = row
+            			let tempAliasesCmdName = cmdAliasesRow.insertCell(1)
+            
+            			let cmdPermsRow = row
+            			let tempCellCmdPerms = cmdPermsRow.insertCell(2)
+            
+            			let cmdDescRow = row
+            			let tempCellCmdDesc = cmdDescRow.insertCell(3)
+            
+            			let cmdExamples = row
+            			let tempCellCmdExamples = cmdDescRow.insertCell(4)
+            
+            			tempCellCmdName.innerHTML = currentCmd.usage || "ERROR - CONTACT SEVP"
+            			tempAliasesCmdName.innerHTML = currentCmd.aliases.join(", ")  || "None Required"
+                         if(currentCmd.trustedOnly){
+                            tempCellCmdPerms.innerHTML = "Trusted Users Only (Bot Admins Only)" 
+                        }
+                        else {
+                            tempCellCmdPerms.innerHTML = currentCmd.permsRequired.join(", ") || "None Required"
+                        }
+            			tempCellCmdDesc.innerHTML = currentCmd.description  || "None Given"
+            			tempCellCmdExamples.innerHTML = currentCmd.examples.join(", ")  || "None Given"
+            
+            			continue;
+            		}
+            }
+         </script>
+	 
+         <script>
+            var para = document.createElement("P");         // Create a <p> element
+            para.innerText = "Welcome to the pulsar command list! The current prefix is \'<%- bot.config.prefix %>\' or \'buddha\'!";// Insert text
+            document.body.appendChild(para);               // Append <p> to <body>
+	    
+	    var otherpara = document.createElement("I");         // Create a <p> element
+            otherpara.innerText = "Pinging the bot with a message will lead to a response using the cleverbot API";// Insert text
+            document.body.appendChild(otherpara);               // Append <p> to <body>
+            
+            let coreCmds = [];
+            let moderationCmds = [];
+            let adminCmds = [];
+            let utilCmds = [];
+            let funCmds = [];
+            let nsfwCmds = [];
+            let customCmds = [];
+            let miscCmds = [];
+            
+            cmdTemp.forEach(cmd => {
+            
+            	let newPermArray = []
+            
+            
+            // Make sure all the required permissions are valid
+            
+            if(cmd.permsRequired){
+            for(var permIndex in cmd.permsRequired){
+            //Get the permission at the current index
+            let curPerm = (cmd.permsRequired[permIndex]);
+            
+            //Check if the current permission is valid
+            if(!DiscordPerms[curPerm]){
+            	continue;
+            }
+            else {
+            	newPermArray.push(curPerm)
+            }
+            }
+            }
+            
+            if(cmd.examples){
+            for(var i = 0; i < cmd.examples.length; i++){
+            cmd.examples[i] = "<%-bot.config.prefix%>" + cmd.examples[i]
+            } // Add the bot prefix to all of the examples
+            
+            }
+            cmd.permsRequired = newPermArray
+            
+            	let cat = cmd.category.toUpperCase();
+            	if(cat == "ADMINISTRATION"){
+            		adminCmds.push(cmd)
+            	}
+            	else if(cat == "CORE"){
+            		coreCmds.push(cmd)
+            	}
+            	else if(cat == "CUSTOM"){
+            		customCmds.push(cmd)
+            	}
+            	else if(cat == "FUN"){
+            		funCmds.push(cmd)
+            	}
+            	else if(cat == "MISCELLANEOUS"){
+            		miscCmds.push(cmd)
+            	}
+            	else if(cat == "MODERATION"){
+            		moderationCmds.push(cmd)
+            	}
+            	else if(cat == "UTILITY"){
+            		utilCmds.push(cmd)
+            	}
+            	else if(cat == "NSFW"){
+            		nsfwCmds.push(cmd)
+            	}
+            
+            })
+         </script>
+	 
+         <!--  The table for moderation commands -->
+         <h2>
+            <p>Moderation Commands:</p>
+         </h2>
+	 
+         <table id="moderationCmdTable">
+            <tr>
+               <th>Command</th>
+               <th>Aliases</th>
+               <th>Permissions Required</th>
+               <th>Description</th>
+               <th>Examples</th>
+            </tr>
+         </table>
+	 
+         <!--  Fill in the table --> 
+         <script>
+            makeCommandTable("moderationCmdTable", moderationCmds);
+         </script>
+	 
+         <!--  The table for fun commands -->
+         <h2>
+            <p>Fun Commands:</p>
+         </h2>
+	 
+         <table id="funCmdTable">
+            <tr>
+               <th>Command</th>
+               <th>Aliases</th>
+               <th>Permissions Required</th>
+               <th>Description</th>
+               <th>Examples</th>
+            </tr>
+         </table>
+	 
+         <!--  Fill in the table --> 
+         <script>
+            makeCommandTable("funCmdTable", funCmds);
+         </script>
+	 
+         <!--  The table for misc commands -->
+         <h2>
+            <p>Custom Commands:</p>
+         </h2>	 
+         <table id="customCmdTable">
+            <tr>
+               <th>Command</th>
+               <th>Aliases</th>
+               <th>Permissions Required</th>
+               <th>Description</th>
+               <th>Examples</th>
+            </tr>
+         </table>
+	 
+         <!--  Fill in the table --> 
+         <script>
+            makeCommandTable("customCmdTable", customCmds);
+         </script>
+	 
+         <!--  The table for nsfw commands -->
+         <h2>
+            <p>NSFW Commands (NSFW Channels Only):</p>
+         </h2>
+	 
+         <table id="nsfwCmds">
+            <tr>
+               <th>Command</th>
+               <th>Aliases</th>
+               <th>Permissions Required</th>
+               <th>Description</th>
+               <th>Examples</th>
+            </tr>
+         </table>
+	 
+         <!--  Fill in the table --> 
+         <script>
+            makeCommandTable("nsfwCmds", nsfwCmds);
+         </script>
+	 
+         <!--  The table for core commands -->
+         <h2>
+            <p>Core Commands:</p>
+         </h2>
+	 
+         <table id="coreCmdTable">
+            <tr>
+               <th>Command</th>
+               <th>Aliases</th>
+               <th>Permissions Required</th>
+               <th>Description</th>
+               <th>Examples</th>
+            </tr>
+         </table>
+	 
+         <!--  Fill in the table --> 
+         <script>
+            makeCommandTable("coreCmdTable", coreCmds);
+         </script>
+	 
+         <!--  The table for admin commands -->
+         <h2>
+            <p>Guild Administrator Commands:</p>
+         </h2>
+         <table id="adminCommands">
+            <tr>
+               <th>Command</th>
+               <th>Aliases</th>
+               <th>Permissions Required</th>
+               <th>Description</th>
+               <th>Examples</th>
+            </tr>
+         </table>
+	 
+         <!--  Fill in the table --> 
+	 
+         <script>
+            makeCommandTable("adminCommands", adminCmds);
+         </script>
+	 
+	 
+         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      </body>
+      
+   </html>

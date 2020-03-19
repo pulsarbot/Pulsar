@@ -1,0 +1,28 @@
+-=-=-=- PulsarTS Production Mode Instructions -=-=-=-
+	/!\ WARNING /!\
+	Running Pulsar in production on your own systems is not supported. Please use the official instance if possible.
+	The PulsarTS team is NOT RESPONSIBLE for any damage caused by running PulsarTS on your own system. Use at your own risk.
+	PulsarTS supports running on production Linux servers only!
+	
+	INITIALIZATION INSTRUCTIONS (Linux only):
+		1. Install NPM and NodeJS (Debian/Ubuntu/Mint/ETC: "apt install nodejs npm" Fedora/RedHat/CentOS: "yum install nodejs npm")
+		2. Install TypeScript globally (npm install -g typescript)
+		3. Install PM2 globally (npm install -g pm2)
+		5. Run "prod-init.sh" to generate the log folder (optional, as the daemon run script eventually runs this anyways)
+		6. Run "tsc" to generate the JavaScript files
+		
+	TO START THE BOT:
+		Run "npm run-script prod-run" to run the repository as a daemon
+		
+	TO STOP THE BOT: 
+		Run "npm run-script prod-stop" to kill the daemon
+		OR
+		Run "pm2 delete PulsarTS" to kill all daemons by that name
+		
+	TO LIST ACTIVE DAEMONS:
+		Run "pm2 list" to see all of the currently running daemons
+		
+	TO CLEANUP OLD DAEMONS:
+		Run "pm2 delete PulsarTS" to remove any daemons by that name
+		
+	MORE INFO ON PM2: https://pm2.keymetrics.io/docs/usage/quick-start/

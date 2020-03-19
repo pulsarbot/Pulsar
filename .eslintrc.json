@@ -1,0 +1,45 @@
+{
+    "env": {
+        "browser": true,
+	"node": true,
+        "commonjs": true,
+        "es6": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 2018,
+	"sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+      "no-var": ["warn"],
+      "no-unreachable": ["warn"],
+      //"quotes": ["warn", "backtick", { "allowTemplateLiterals": true, "avoidEscape": true}],
+      "quotes": ["ignore", "backtick", { "allowTemplateLiterals": true, "avoidEscape": true}],
+      "prefer-promise-reject-errors": ["error"],
+      "@typescript-eslint/explicit-function-return-type": 1,
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-var-requires": "off",
+      "@typescript-eslint/no-use-before-define": "off",
+      "@typescript-eslint/consistent-type-assertions": ["warn"],
+      "@typescript-eslint/camelcase": 1,
+      "@typescript-eslint/no-namespace": "off",
+      "no-async-promise-executor": "off",
+      "no-mixed-spaces-and-tabs": "off",
+      "no-control-regex": "off",
+      "no-useless-escape": "off",
+      "no-unused-vars": "off",
+      "semi-style": 1,
+      "semi": 1
+    }
+}

@@ -1,0 +1,30 @@
+<% /*
+    main.ejs
+    Main summary page for the server control panel.
+    Copyright (C) 2020 The Pulsar Project
+*/ %>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%- server.name  %> - Pulsar</title>
+    <%- include('../templates/head.ejs') %>
+  </head>
+  <body>
+    <%- include('../templates/header.ejs') %>
+    <%- include('../templates/server.ejs') %>
+    <!-- START TAB -->
+    <div class="span9" style="margin-left: 8px">
+        <h2>Summary</h2>
+        <p>Welcome to <%- server.name %>.</p>
+        <legend>Statistics</legend>
+        <p>Members: <%- server.members.cache.filter(member => member.user.bot == false).size %></p>
+        <p>Bots: <%- server.members.cache.filter(member => member.user.bot == true).size%></p>
+        <p>Owner: <%- server.owner.user.tag %> [<%- server.owner.id %>]</p>
+    </div>
+    <!-- END TAB -->
+    <script>
+    </script>
+    <%- include('../templates/footer.ejs') %>
+  </body>
+</html>

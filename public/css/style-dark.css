@@ -1,0 +1,26 @@
+/*
+    style-dark.css
+    Style overrides for systems using dark mode.
+    Copyright (C) 2020 The Pulsar Project
+*/
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #0a0a0a;
+    }
+      
+    h1, h2, h3, h4, h5, h6, p, label, legend, span {
+        color: white;
+    }
+    div.well {
+        background-color: #222222;
+        border: 1px solid #1c1c1c;
+    }
+    div.form-actions {
+        background-color: #222222;
+        border: 1px solid #1a1a1a;
+    }
+    table.night-compat {
+        background-color: #bbbbbb;
+    }
+}

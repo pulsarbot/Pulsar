@@ -1,0 +1,33 @@
+<%/*
+	server.ejs
+	Pulsar Web Service Servers Page
+	Copyright (C) 2020 The Pulsar Project
+*/%>
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Pulsar - Servers</title>
+		<%- include('templates/head.ejs') %>
+	</head>
+	<body>
+		<%- include('templates/header.ejs') %>
+
+		<% 
+			var loginAlert = '';
+			if(req.query.notLoggedIn === ''){
+				loginAlert += '<div class="alert alert-danger top-alert">\uD83D\uDD12 <strong>Not logged in.</strong> You must be logged in to do that.</div>';
+			} 
+			else if(req.query.justLoggedOut === ''){
+				loginAlert += '<div class="alert alert-success top-alert">\u2705 <strong>Logged out.</strong> You are now logged out. Have a secure day.</div>';
+			}
+		%>
+		<%- loginAlert %>
+
+		<div class="span12">
+			<h1>Pulsar</h1>
+			<p>Welcome to Pulsar</p>
+		</div>
+		<%- include('templates/footer.ejs') %>
+	</body>
+</html>

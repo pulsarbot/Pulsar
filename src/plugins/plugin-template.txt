@@ -1,0 +1,18 @@
+// Plugins are supported as both Javascript and Typescript files!
+
+import * as Discord from 'discord.js';
+import * as fs from 'fs';
+import Pulsar from '../handlers/Pulsar';
+
+module.exports.run = async(bot) => {
+
+// Plugin code goes here
+
+};
+
+module.exports.info = {
+"name": "PluginName",
+"author": "PluginAuthor",
+"version": "1.0.0",
+"info": "This plugin does x, x, and x"
+}

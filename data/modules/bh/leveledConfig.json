@@ -1,0 +1,12 @@
+{
+"guildEnabled": "451248270409334796",
+"logChannel": "451392471490887691",
+	"roles":{
+		"635346804195590178": 1000,
+		"635346896847634462": 1500,
+		"635346980842766360": 2000	
+},
+"onLeaveReset": true,
+"checkEveryDays": 7,
+"ref": ["Buddhist", "Preacher", "Pastor"]
+}

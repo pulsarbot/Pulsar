@@ -1,0 +1,64 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* Fixes dropdown menus placed on the right side */
+.ml-auto .dropdown-menu {
+	left: auto !important;
+	right: 0px;
+}
+
+.nav-badge {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	display: block;
+}
+
+.nav-header {
+	color: #999;
+	text-transform: uppercase;
+}
+
+.top-alert {
+	margin: 10px 0 !important;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.ps-footer {
+	position: fixed;
+	height: 100px;
+	bottom: 0;
+	width: 100%;
+	margin-left: 5%;
+}
+
+.ps-footer img {
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	vertical-align: middle
+}
+
+.copy-text {
+	margin: 0 0 0 5px;
+	display: inline-block;
+	font-size: 80%;
+	font-weight: 400;
+	vertical-align: middle
+}
+
+.allow-overflow {
+	word-break: break-word;
+	overflow-wrap: break-word;
+	white-space: pre-wrap !important;
+}

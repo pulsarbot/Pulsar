@@ -1,0 +1,15 @@
+{
+	"notify": false,
+	"clearScreen": true,
+	"timestamp": true,
+	"vm": false,
+	"ignore": [
+		"public/*.js",
+		"public/*.json"
+	],
+	"extensions": {
+		"ls": "LiveScript",
+		"ts": "typescript",
+		"coffee": "coffee-script"
+	}
+}

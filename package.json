@@ -1,0 +1,73 @@
+{
+  "name": "pulsar-ts",
+  "version": "3.0.0",
+  "description": "A complete overhaul and rewrite of the PulsarBot in Typescript",
+  "main": "index.ts",
+  "scripts": {
+    "build": "tsc",
+    "run-dev": "ts-node-dev --respawn --ignore-watch data ./src/index.ts",
+    "run-js": "node ./dist/index.js",
+    "prod-run": "./prod-spawn.sh",
+    "prod-stop": "pm2 stop PulsarTS"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeverePain/PulsarTS-Dev.git"
+  },
+  "author": "severepain",
+  "license": "LGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/SeverePain/PulsarTS-Dev/issues"
+  },
+  "homepage": "https://github.com/SeverePain/PulsarTS-Dev#readme",
+  "dependencies": {
+    "@types/glob": "^7.1.1",
+    "axios": "^0.19.1",
+    "body-parser": "^1.19.0",
+    "capture-console": "^1.0.1",
+    "chalk": "^3.0.0",
+    "cleverbot-free": "^1.0.3",
+    "cookie-parser": "^1.4.4",
+    "cookies": "^0.8.0",
+    "discord-anti-spam": "^2.3.4",
+    "discord-oauth2": "^2.0.2",
+    "discord.js": "github:discordjs/discord.js",
+    "dotenv": "^8.2.0",
+    "edit-json-file": "^1.4.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "faker": "^4.1.0",
+    "fortune-teller": "^0.1.2",
+    "git-last-commit": "^1.0.0",
+    "glob": "^7.1.6",
+    "globby": "^11.0.0",
+    "he": "^1.2.0",
+    "http": "0.0.0",
+    "jquery": "^3.4.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.2",
+    "passport": "^0.4.1",
+    "passport-discord.js": "0.0.6",
+    "performance-now": "^2.1.0",
+    "phin": "^3.4.1",
+    "pornhub.js": "github:pionxzh/Pornhub.js",
+    "pug": "^2.0.4",
+    "random-puppy": "^1.1.0",
+    "socket.io": "^2.3.0",
+    "superagent": "^5.2.2",
+    "tesseract.js": "^2.0.2",
+    "ts-node": "^8.6.2"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.2",
+    "@types/cookies": "^0.7.4",
+    "@types/express": "^4.17.2",
+    "@types/node": "^13.7.5",
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "@typescript-eslint/parser": "^2.18.0",
+    "eslint": "^6.8.0",
+    "typescript": "^3.7.4"
+  }
+}

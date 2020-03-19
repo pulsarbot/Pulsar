@@ -1,0 +1,21 @@
+<% /*
+	header-basic.ejs
+	Basic template check to make sure JavaScript is enabled
+	Copyright (C) 2020 The Pulsar Project
+*/ %>
+
+<div class="container">
+	<!-- Logo -->
+	<!--<a href="/"><img src="/img/Logo.jpg" width="400px" alt="Pulsar Logo" style="margin-top: 10px" /></a>-->
+	
+	<!-- Verify JS -->
+	<div class="row">
+		<div id="jsNotEnabled">
+			<div class="alert alert-danger">
+				<span>&#x1F6D1; <strong>JavaScript is not enabled.</strong> Please enable JavaScript in your browser settings to continue.</span>
+			</div>
+		</div>
+		<script>
+			document.getElementById("jsNotEnabled").remove();
+		</script>
+	</div>

@@ -1,0 +1,69 @@
+<%/*
+	index.ejs - Eye Candy Forked from Spotrealms Network, background by Mr. Doob
+	Pulsar Web Service Home Page
+	Copyright (C) 2020 The Pulsar Project
+*/%>
+
+<!doctype html>
+<html id="particles-js">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1 minimum-scale=1 maximum-scale=1 user-scalable=no">
+		<meta name="format-detection" content="telephone=no"> <!-- To prevent iOS from registering phone numbers from random digits on screen -->
+		<link rel="stylesheet" href="/css/frontpage.css">
+		<link rel="stylesheet" href="/css/fontawesome.min.css">
+		<script type="application/javascript" src="js/three.min.js"></script>
+		<script type="application/javascript" src="js/three-helper.js"></script>
+		<script type="application/javascript">
+			//Special thanks to Mr. Doob. Source here: https://mrdoob.neocities.org/017/
+			var loader = new THREE.FileLoader();
+			loader.load('json/threejs-conf.json', function(text){
+				//Initialization
+				var player = new APP.Player();
+				player.load(JSON.parse(text));
+				player.setSize(window.innerWidth, window.innerHeight);
+				player.play();
+
+				//Append the player to the page's DOM
+				document.body.appendChild(player.dom);
+
+				//Check for resizes and resize as needed
+				window.addEventListener('resize', function(){
+					player.setSize(window.innerWidth, window.innerHeight);
+				});
+			});
+		</script>
+		<title><%-discord.config.botName%> - Home</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="top-backlink">
+				<img id="pulsarLogo" src="/img/pulsar-icon.jpg" alt="<%-discord.config.botName%> Logo"/>
+				<script type="application/javascript">
+					//Create a random int (0-360)
+					var randInt = (Math.floor(Math.random() * (360 - 0 + 1) + 0));
+
+					//Get the target element
+					var theImg = (document.querySelector('#pulsarLogo'));
+
+					//Write the filter to the element with the randomly rotated hue
+					theImg.style.filter = ("invert(0) sepia(100%) saturate(1000%) hue-rotate(" + randInt + "deg)");
+				</script>
+				<a href="/"><%-discord.config.botName%> Bot</a>
+			</div>
+			<h1 class="container-header">Welcome to <%-discord.config.botName%></h1>
+			<span class="container-desc">Lorem ipsum dolar sit amet</span>
+			<div class="btn-container">
+				<!-- <a class="link"><button type="button" class="btn btn-lg btn-danger nav-btn" id="return-btn">Go Back</button></a> -->
+				<a class="link" href="/servers"><button type="button" class="btn btn-lg btn-primary nav-btn"><span class="fas fa-cog"></span> Manage Servers</button></a>
+				<a class="link" href="/commands"><button type="button" class="btn btn-lg btn-warning nav-btn"><span class="fas fa-terminal"></span> View Commands</button></a>
+				<div class="btn-sep"></div>
+				<a class="link" href="<%-discord.config.inviteURL%>" target="_blank"><button type="button" class="btn btn-lg btn-success nav-btn"><span class="fab fa-discord"></span> Invite to Discord</button></a>
+				<a class="link" href="https://github.com/SeverePain/PulsarTS-Dev" target="_blank"><button type="button" class="btn btn-lg btn-danger nav-btn" ><span class="fab fa-github"></span> GitHub</button></a>
+				<noscript>
+					<span class="noscript-header">You disabled JavaScript! Some elements may not work properly as a result.</span>
+				</noscript>
+			</div>
+		</div>
+	</body>
+</html>

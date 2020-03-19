@@ -1,0 +1,46 @@
+<% /*
+    error.ejs
+    Template for handling System Errors
+    Copyright (C) 2020 The Pulsar Project
+*/ %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Error - Pulsar</title>
+    <%- include('templates/head.ejs') %>
+</head>
+<body>
+    <%- include('templates/header-min.ejs') %>
+    <%
+        // Selecting an error icon
+        var errorHead = ''
+        var tryAgainButtonOption = true;
+        var tryAgainButton = "<button id='tryAgainButton' class='btn' onClick='location.reload(true)'>Try again</button>"
+        switch (error.status) {
+            case '400': errorHead += '&#x1F6D1; Invalid Request'; tryAgainButtonOption = false; break;
+            case '401': errorHead += '&#x1F512; Not Logged In'; tryAgainButtonOption = false; break;
+            case '403': errorHead += '&#x1F512; Not Allowed'; tryAgainButtonOption = false; break;
+            case '404': errorHead += '&#x26A0;&#xFE0F; Not Found'; tryAgainButtonOption = false; break;
+            case '408': errorHead += '&#x26A0;&#xFE0F; Request Timed Out'; break;
+            case '410': errorHead += '&#x26A0;&#xFE0F; Resource No Longer Available'; tryAgainButtonOption = false; break;
+            case '414': errorHead += '&#x26A0;&#xFE0F; Request URI Too Long'; tryAgainButtonOption = false; break;
+            case '429': errorHead += '&#x26A0;&#xFE0F; Too Many Requests'; break;
+            case '431': errorHead += '&#x26A0;&#xFE0F; Request Headers Too Large'; tryAgainButtonOption = false; break;
+            case '451': errorHead += '&#x1F6D1; Unavailable for Legal Reasons'; tryAgainButtonOption = false; break;
+            case '500': errorHead += '&#x1F525; Server Error'; break;
+            case '501': errorHead += '&#x26D4; Not Yet Implemented'; tryAgainButtonOption = false; break;
+            case '502': errorHead += '&#x26D4; Bad Gateway'; break;
+            case '503': errorHead += '&#x26D4; Service Unavailable'; break;
+            default: errorHead += '&#x1F525; Sorry, something went wrong.'; break;
+        }
+        if (!tryAgainButtonOption) tryAgainButton = '';
+    %>
+    <h1><%- errorHead %></h1>
+    <h2>Error <%= error.status %>: <%= message %></h2>
+    <pre><%= error.stack %></pre>
+    <%- tryAgainButton %>
+    <button class='btn' onClick='window.location = "/"'>Go home</button>
+    <%- include('templates/footer.ejs') %>
+</body>
+</html>
