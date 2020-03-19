@@ -4,7 +4,7 @@
     "botName": "Pulsar",
 	"botHomepage": "https://pulsar.severepain.xyz",
     "cban": {
-        "moduleEnabled": true,
+        "moduleEnabled": false,
         "cbanReportChannelID": "544276391080886293"
     },
     "antiDoxEnabled": false,

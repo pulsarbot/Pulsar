@@ -1,5 +1,5 @@
 {
-  "name": "pulsar-ts",
+  "name": "pulsar-ts-release",
   "version": "3.0.0",
   "description": "A complete overhaul and rewrite of the PulsarBot in Typescript",
   "main": "index.ts",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SeverePain/PulsarTS-Dev.git"
+    "url": "git+https://github.com/pulsarbot/Pulsar"
   },
   "author": "severepain",
   "license": "LGPL-3.0",
   "bugs": {
-    "url": "https://github.com/SeverePain/PulsarTS-Dev/issues"
+    "url": "https://github.com/pulsarbot/Pulsar/issues"
   },
-  "homepage": "https://github.com/SeverePain/PulsarTS-Dev#readme",
+  "homepage": "https://github.com/pulsarbot/Pulsar#readme",
   "dependencies": {
     "@types/glob": "^7.1.1",
     "axios": "^0.19.1",
