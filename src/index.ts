@@ -89,7 +89,8 @@ let commandHandler = require(`./commands/CommandLoader`);
 commandHandler.loadCommands(); // Load in all of the commands
 
 if(!fs.existsSync(`./data/guilds/bannedGuildOwners.txt`) &&! fs.existsSync(`./data/guilds/bannedGuilds.txt`)){
-	fs.mkdirSync(`./data/guilds`);
+	fs.writeFileSync(`./data/guilds/bannedGuildOwners.txt`, "");
+	fs.writeFileSync(`./data/guilds/bannedGuilds.txt`, "");
 }
 
 // If there is no file to log cbans, create it

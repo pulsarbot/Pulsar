@@ -9,6 +9,17 @@ async function leveledRoles(bot: Pulsar): Promise<void> {
 
     // Directly copy+pasted from the old Version (and added beautification) - that is why it is so sloppy and has no comments
     console.log(`[LEVELED ROLES] Module Started!`);
+
+    if(!fs.existsSync(obhDir + `/levels.json`)){
+        fs.writeFileSync(`${obhDir}/levels.json`, JSON.stringify({}));
+    }
+    if(!fs.existsSync(obhDir + `/lastSync.txt`)){
+        fs.writeFileSync(`${obhDir}/lastSync.txt`, "");
+        let lastSyncStream = fs.createWriteStream(`${obhDir}/lastSync.txt`);
+        lastSyncStream.write(`${Date.now()}`);
+        lastSyncStream.close();
+    }
+
     let leveledConfig = JSON.parse(fs.readFileSync(`${obhDir}/leveledConfig.json`).toString());
     let levels = JSON.parse(fs.readFileSync(`${obhDir}/levels.json`, `utf8`));
     let obh = await bot.pulsarGuilds.get(leveledConfig.guildEnabled);

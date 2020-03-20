@@ -447,7 +447,8 @@ class PulsarGuild extends Discord.Guild {
 		 let guild = discordGuild;
 
 		 try {
-            if(!fs.opendirSync(`./data/guilds/${guild.id}`)) fs.mkdirSync(`data/guilds/${guild.id}`);
+			 let tempDir = fs.opendirSync(`./data/guilds/${guild.id}`)
+            if(!tempDir) fs.mkdirSync(`data/guilds/${guild.id}`);
             if (!fs.existsSync(`./data/guilds/${guild.id}/muted-users.json`)) fs.writeFileSync(`./data/guilds/${guild.id}/muted-users.json`, JSON.stringify({}));
             if (!fs.existsSync(`./data/guilds/${guild.id}/banned-users.json`)) fs.writeFileSync(`./data/guilds/${guild.id}/banned-users.json`, JSON.stringify({}));
             if (!fs.existsSync(`./data/guilds/${guild.id}/image-muted-users.json`)) fs.writeFileSync(`./data/guilds/${guild.id}/image-muted-users.json`, JSON.stringify({}));
@@ -467,6 +468,7 @@ class PulsarGuild extends Discord.Guild {
 				"starBoardChannel": false,
 				"starsNeeded": 10
 					}));
+			tempDir.closeSync();
         }
         catch {
             fs.mkdirSync(`data/guilds/${guild.id}`);
