@@ -22,7 +22,7 @@ export default class Pulsar extends Discord.Client {
     }
 
     async fetchUser(userID: string): Promise<Discord.User> {
-        let user = this.users.fetch(userID);
+        let user = await this.users.fetch(userID);
         if(user) return user
         else return null;
 

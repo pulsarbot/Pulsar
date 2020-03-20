@@ -57,7 +57,7 @@ export default class Ban extends Command {
 		var userToBan: Discord.User;
 		let userToBanMember = message.guild.members.cache.find(member => member === message.mentions.members.first()) || null;
 		if (userToBanMember) userToBan = userToBanMember.user;
-		if (!userToBan) userToBan = await bot.users.cache.get(args[0]); // If the user is not in the guild, ban them by their ID
+		if (!userToBan) userToBan = await bot.fetchUser(args[0]); // If the user is not in the guild, ban them by their ID
 
 		// There is no user to ban
 		if(!userToBan) return m.edit(`:no_entry: Couldn't find the member to ban.`);
