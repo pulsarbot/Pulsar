@@ -25,7 +25,7 @@ export default class Config extends Command {
 		CommandCategory.ADMINISTRATION, //CATEGORY
 		1, //MIN ARGS
 		2, //MAX ARGS
-		[], //REQUIRED PERMS
+		["MANAGE_GUILD"], //REQUIRED PERMS
 		false, //BOT OWNER ONLY
 		false, //TRUSTED ONLY
 		[], //BLACKLISTED USERS
