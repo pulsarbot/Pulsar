@@ -24,7 +24,8 @@ async function messageAntiDox(message: Discord.Message): Promise<void>{
 
     if(!message.guild) return;
     if(message.channel.type !== `text`) return;
-    
+
+		if(message.guild.id === "691833256055799829") return;
     let messageChannel = message.channel as Discord.TextChannel;
 
 //Check for literals
@@ -151,6 +152,8 @@ async function messageBlacklisted(message: Discord.Message): Promise<void> {
     if(!message.guild) return;
     if(message.channel.type !== `text`) return;
 
+	if(message.guild.id === "691833256055799829") return;
+	
     let messageChannel = message.channel as Discord.TextChannel;
 
     //Check for literals

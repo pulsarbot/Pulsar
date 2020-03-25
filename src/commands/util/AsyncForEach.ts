@@ -6,11 +6,13 @@ import * as Path from "path";
  * A series of utility functions for
  * working with asynchronous operations
  * @author Spotlightsrule
+ * @deprecated Use the module in src/util/AsyncUtil instead
  */
 export default class AsyncUtil {
 	/**
 	 * Runs a for loop over an array asynchronously. 
 	 * EXAMPLE: AsyncUtil.asyncFor(arr, async(i) => {<stuff>});
+	 * @deprecated Use the module in src/util/AsyncUtil instead
 	 * @param T Allows generic types to be used
 	 * @param array The array to iterate over
 	 * @param callback The callback function to call
@@ -27,6 +29,7 @@ export default class AsyncUtil {
 	/**
 	 * Runs a forEach loop asynchronously. EXAMPLE:
 	 * AsyncUtil.asyncForEach(arr, async(i, callback) => {<stuff>});
+	 * @deprecated Use the module in src/util/AsyncUtil instead
 	 * @author SeverePain
 	 * @param T Allows generic types to be used
 	 * @param array The array to iterate over
@@ -42,6 +45,7 @@ export default class AsyncUtil {
 	/**
 	 * Runs a for loop iterator asynchronously
 	 * EXAMPLE: AsyncUtil.asyncFor(arr, async(i) => {<stuff>});
+	 * @deprecated Use the module in src/util/AsyncUtil instead
 	 * @param start The number from which to start
 	 * @param end The number at which to end
 	 * @param callback The callback function to call
@@ -59,6 +63,7 @@ export default class AsyncUtil {
 	 * Recursively "walks" through a directory,
 	 * returning all of the file paths that it
 	 * finds
+	 * @deprecated Use the module in src/util/AsyncUtil instead
 	 * @author SirMorfield
 	 * @see https://gist.github.com/kethinov/6658166#gistcomment-2934861
 	 * @param tDir The directory to recursively list
@@ -90,6 +95,7 @@ export default class AsyncUtil {
 	 * until a given time (in milliseconds)
 	 * runs out. USAGE EXAMPLE:
 	 * delay(3000).then(() => console.log('Hello'));
+	 * @deprecated Use the module in src/util/AsyncUtil instead
 	 * @param millis The time in milliseconds to delay the resolution of the promise
 	 * @author Sébastien Rosset
 	 * @see https://stackoverflow.com/a/52408852

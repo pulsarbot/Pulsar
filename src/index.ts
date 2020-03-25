@@ -106,7 +106,7 @@ if(bot.config.cban.moduleEnabled){
 if(bot.config.antiDoxEnabled){
 	if(!fs.existsSync(`./data/doxEvents.json`)){
 		console.log(`[ANTIDOX] Creating the antidox logging JSON file!`)
-		fs.writeFileSync(`./data/doxEvents.json`, JSON.stringify({}, null, 4));
+		fs.writeFileSync(`./data/doxEvents.json`, JSON.stringify([], null, 4));
 		}
 }
 

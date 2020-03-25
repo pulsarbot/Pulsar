@@ -36,7 +36,7 @@ export default class BotInfo extends Command {
 	);
 
 	/**
-	 * Constructs a new instance of the "BotInfo"
+	 * Constructs a new instance of the "Version"
 	 * command class
 	 * @param cmdConsole The interpreter's console instance
 	 */

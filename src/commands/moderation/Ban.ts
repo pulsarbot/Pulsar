@@ -67,9 +67,15 @@ export default class Ban extends Command {
 		if(bot.config.botAdmins.includes(userToBan.id)) return m.edit(":x: You cannot ban that user!")
 
         // Target member not bannable by system
-		if(!userToBan ||! userToBanMember.bannable) return m.edit(":no_entry: I cannot ban this user!");
+		if(!userToBan) return m.edit(":no_entry: I cannot ban this user!");
+		if(userToBanMember &&! userToBanMember.bannable) return m.edit(":no_entry: I cannot ban this user!");
 		
 		let psGuild = await bot.pulsarGuilds.get(message.guild.id);
+		let userAlreadyBanned = psGuild.banlist.isBanned(userToBan.id);
+
+		if(userAlreadyBanned){
+			return message.reply(`:no_entry: I cannot ban that user because they are already banned!`);
+		}
 
 		let guildConfig: any = psGuild.config;
 		var bannedUsersJSON = psGuild.temp_banned_users;
@@ -89,9 +95,11 @@ export default class Ban extends Command {
 			// Ban Reason (if any)
 			let banReason
 			if(banArgs[1]) banReason = banArgs.slice(1).join(" ");
-			if(!banReason) banReason = null;
+			if(!banReason) banReason = "No Reason Provided";
 			// Create JSON object
-			let isSuccess = psGuild.createTempBannedUserEntry(message.author.id, userToBan.id, userToBan.tag, userToBan.avatarURL(), Date.now() + timeToBan, banReason);
+
+			let finalCaseID = Discord.SnowflakeUtil.generate(Date.now());
+			let isSuccess = psGuild.createTempBannedUserEntry(message.author.id, userToBan.id, userToBan.tag, userToBan.avatarURL(), Date.now() + timeToBan, banReason, finalCaseID);
 			if(!isSuccess){
 				return m.edit(`:no_entry: Something went wrong writing to the file! Contact severepain about this issue!`);
 			}
@@ -101,7 +109,7 @@ export default class Ban extends Command {
 		    // Try to notify the member that they have been banned (only if they're already in the server)
 			if (userToBan) {
 				if(!timeToBan){
-					let rr = banReason || null;
+					let rr = banReason || "No Reason Provided";
 					psGuild.temp_banned_users[userToBan.id] =  {
 						"reason": rr,
 						"caseID": Discord.SnowflakeUtil.generate(Date.now()),

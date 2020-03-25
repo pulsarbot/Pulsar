@@ -152,12 +152,12 @@ export default class StringUtil {
 	 * @param strIn The string to turn into an acronym
 	 * @return <b>string<b> The resulting acronym
 	 */
-	public static toAcronym(strIn:string): string{
+	public static toAcronym(strIn:string):string{
 		//Split the string at each whitespace or space char
-		let splitStr = strIn.split((/[\u0009\u000A\u000B\u000C\u000D\u0020\u0085\u00A0\u1680\u180E\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u2028\u2029\u202F\u205F\u3000]/), -1);
+		let splitStr:string[] = strIn.split((/[\u0009\u000A\u000B\u000C\u000D\u0020\u0085\u00A0\u1680\u180E\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u2028\u2029\u202F\u205F\u3000]/), -1);
 	
 		//Create a string for later
-		let acroStr = "";
+		let acroStr:string = "";
 		
 		//Loop through the string pieces
 		for(let i=0; i<splitStr.length; i++){

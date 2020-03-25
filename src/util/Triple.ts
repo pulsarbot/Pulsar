@@ -69,7 +69,7 @@ export default class Triple<X, Y, Z> {
 	
 	/**
 	 * Sets the contents of the third triple element
-	 * @param elemOne The new contents of element three
+	 * @param elemThree The new contents of element three
 	 */
 	public setElemThree(elemThree:Z):void {
 		this.elemThree = elemThree;
