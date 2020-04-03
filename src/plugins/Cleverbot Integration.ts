@@ -21,13 +21,17 @@ module.exports.run = async (bot: Pulsar) => {
     let config:any = bot.config;
     
     bot.on("message", async (message) => {
-        if (!message.channel || !message.guild) return;
+		if (!message.channel || !message.guild) return;
+		
+		//Break out if the sender is the bot itself
+		if(message.author.id === bot.user.id) return;
+
         // Handle cleverbot integration if the module is enabled in config
         if (config.cleverbotOnMentions) {
-            if (message.mentions.users && message.channel && message.channel.type == "text") {
+            if (message.mentions.users && message.channel && message.channel.type == "text" && message.content) {
                 try {
                     if(!message.mentions.users.first()) return;
-		    // Only use the feature if it mentions the bot and it is not a command
+		    		// Only use the feature if it mentions the bot and it is not a command
                     if (message.mentions.users.first().id === bot.user.id  &&! message.content.toLowerCase().startsWith(`${bot.config.prefix}`)){
 						
                         if (!await checkDox(message.content)) { // If the message is not a dox, proceed

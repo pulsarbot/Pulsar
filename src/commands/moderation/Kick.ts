@@ -10,6 +10,8 @@ import Pulsar from "../../handlers/Pulsar";
 import Discord, { GuildMember, MessageEmbed, TextChannel, Message, SnowflakeUtil } from "discord.js";
 import PulsarGuild from "../../handlers/PulsarGuild";
 
+import fs from 'fs';
+
 export default class Kick extends Command {
 	//Define the fields for the command
 	private static commandFields = new CommandField(

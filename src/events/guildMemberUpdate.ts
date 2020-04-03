@@ -7,7 +7,9 @@ import * as Discord from 'discord.js';
 let antiDoxScreen = require(`../modules/Antidox/antiDoxScreen`);
 
 bot.on(`guildMemberUpdate`, async function(oldMember, newMember) {
-
+	
+	if(oldMember.guild.id === "691833256055799829") return;
+		
 	let guild = oldMember.guild
 	let pulsarGuild = await bot.pulsarGuilds.get(oldMember.guild.id);
 

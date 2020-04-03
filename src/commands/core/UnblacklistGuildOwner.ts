@@ -58,7 +58,7 @@ export default class UnblacklistGuildOwner extends Command {
 		let reasonArray: string[] = [];
 
 		// Seperate all of the arguments into all of the arrays
-		await AsyncForEachModule.asyncForEach(args, async item => {
+		await AsyncForEachModule.prototype.asyncForEach(args, async item => {
 			let itemFormatted: string = item.replace(/[^\w\s]/gi, '');
 			if(!parseInt(itemFormatted) &&! bannedGuildOwnerIDS.includes(itemFormatted)){ //the User ID doesn't exist and it cannot be parsed into an int, it must be a reason
 				reasonArray.push(itemFormatted);
@@ -70,7 +70,7 @@ export default class UnblacklistGuildOwner extends Command {
 		})
 
 		// Now go inside every guild owned by the user and leave it + add the user ID to the txt file
-		await AsyncForEachModule.asyncForEach(guildOwnerArray, async ID => {
+		await AsyncForEachModule.prototype.asyncForEach(guildOwnerArray, async ID => {
 			try {
 			if(bannedGuildOwnerIDS.includes(ID)){
 				bannedGuildOwnerIDS = bannedGuildOwnerIDS.replace(`${ID}\n`, ``);

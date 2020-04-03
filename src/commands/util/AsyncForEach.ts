@@ -18,7 +18,7 @@ export default class AsyncUtil {
 	 * @param callback The callback function to call
 	 * @return <b>Promise<void></b> The result of the callback function
 	 */
-	public static async asyncFor<T>(array:T[], callback:any): Promise<void> {
+	public async asyncFor<T>(array:T[], callback:any): Promise<void> {
 		//Run a regular for loop
 		for(let index=0; index<array.length; index++){
 			//Wait for the callback function to complete
@@ -36,7 +36,7 @@ export default class AsyncUtil {
 	 * @param callback The callback function to call
 	 * @return <b>Promise<void></b> The result of the callback function
 	 */
-	public static async asyncForEach<T>(array:T[], callback:any): Promise<void> {
+	public async asyncForEach<T>(array:T[], callback:any): Promise<void> {
 		for(let index = 0; index<array.length; index++){
 			await callback(array[index], index, array);
 		}

@@ -75,7 +75,7 @@ export default class CommunityBan extends Command {
 		let userIDArr: string[] = [];
 
 		let cbannedUsersJSONTemp = await JSON.parse(fs.readFileSync(`./data/community-bans.json`).toString());
-		await AsyncForEachModule.asyncForEach(args, async item => {
+		await AsyncForEachModule.prototype.asyncForEach(args, async item => {
 			let formattedItem = item.replace(/[^\w\s]/gi, '');
 			if(!parseInt(formattedItem) || formattedItem.length !== 18){ // If the value provided is NOT a user ID, assume it is a reason
 				reasonArr.push(item);
@@ -98,11 +98,11 @@ export default class CommunityBan extends Command {
 		let toReportChannel = bot.config.cban.cbanReportChannelID;
 		let cbanReason: any = reasonArr.join(" ") || null;
 		
-		await AsyncForEachModule.asyncForEach(guildsToBanFrom, async guildID => {
+		await AsyncForEachModule.prototype.asyncForEach(guildsToBanFrom, async guildID => {
 
 			let guild = await bot.pulsarGuilds.get(guildID);
 
-			await AsyncForEachModule.asyncForEach(userIDArr, async userIDToBan => {
+			await AsyncForEachModule.prototype.asyncForEach(userIDArr, async userIDToBan => {
 				if(await guild.banlist.isBanned(userIDToBan)) return; // The user is already banned in the guild, move on
 				let userToBan: User = await bot.users.cache.get(userIDToBan);
 				try {
@@ -118,7 +118,7 @@ export default class CommunityBan extends Command {
 
 
 		let userFormattedArr: string[] = [];
-		await AsyncForEachModule.asyncForEach(userIDArr, async ID => {
+		await AsyncForEachModule.prototype.asyncForEach(userIDArr, async ID => {
 			let user: User = await bot.users.cache.get(ID);
 			if(!user) return;
 			userFormattedArr.push(`${user.tag} [${user.id}]`);

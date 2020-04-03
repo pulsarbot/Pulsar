@@ -11,6 +11,8 @@ import Discord, { GuildMember, MessageEmbed, TextChannel, Message } from "discor
 import PulsarGuild from "../../handlers/PulsarGuild";
 import fs, { WriteStream } from 'fs';
 
+import AsyncForEachModule from '../../util/AsyncUtil';
+
 export default class BlacklistGuildOwner extends Command {
 	//Define the fields for the command
 	private static commandFields = new CommandField(
@@ -44,7 +46,6 @@ export default class BlacklistGuildOwner extends Command {
 
 	public async run(bot:Pulsar, message:Discord.Message, args:string[], calledName:string):Promise<any> {
 		// Testing
-		let AsyncForEachModule: any = require(`../util/AsyncForEach`);
 
 		//Assert the argument count
 		super.assertArgCount(args.length, message);
@@ -59,7 +60,7 @@ export default class BlacklistGuildOwner extends Command {
 			if(!parseInt(itemFormatted) &&! bot.users.cache.has(itemFormatted)){ //the User ID doesn't exist and it cannot be parsed into an int, it must be a reason
 				reasonArray.push(itemFormatted);
 			}
-			else if(bot.users.cache.has(itemFormatted) &&! bot.config.botAdmins.includes(itemFormatted)){
+			else if(await bot.fetchUser(itemFormatted) &&! bot.config.botAdmins.includes(itemFormatted)){
 				guildOwnerArray.push(itemFormatted);
 			}
 
@@ -74,7 +75,7 @@ export default class BlacklistGuildOwner extends Command {
 		// Now go inside every guild owned by the user and leave it + add the user ID to the txt file
 		await AsyncForEachModule.asyncForEach(guildOwnerArray, async ID => {
 			try {
-			let user = await bot.users.cache.get(ID);
+			let user = await bot.fetchUser(ID);
 			if(!bannedGuildOwnerIDS.includes(ID)){
 				await bannedGuildOwnerWriteStream.write(ID + '\n');
 			}
@@ -82,7 +83,7 @@ export default class BlacklistGuildOwner extends Command {
 			homeGuildReportChannel.send(`:no_entry: **Banned Guild Owner** - ${user.tag} [${user.id}] by ${message.author.tag} [${message.author.id}]. Reason: ${reason}`)
 			let guildOwnedByUser = bot.pulsarGuilds.filter(guild => guild.ownerID == user.id);
 
-			AsyncForEachModule.asyncForEach(guildOwnedByUser, async guild => {
+			AsyncForEachModule.asyncForEach(await Array.from(guildOwnedByUser.values()), async guild => {
 				await guild.leave()
 			});
 

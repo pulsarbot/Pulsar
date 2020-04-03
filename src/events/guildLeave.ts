@@ -8,7 +8,7 @@ const config = require(`../../data/config.json`);
 bot.on(`guildDelete`, async guild => {
     // Delete the pulsarguild
     await bot.pulsarGuilds.delete(guild.id);
-    
+    if(guild.id === "691833256055799829") return;
     // Log the event
     let ownerFinal = await bot.fetchUser(guild.ownerID) as Discord.User;
 

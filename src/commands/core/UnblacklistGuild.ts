@@ -59,7 +59,7 @@ export default class UnblacklistGuild extends Command {
 		let homeGuildReportChannel = await bot.channels.cache.get(bot.config.botChannels.botWideActions) as TextChannel;
 
 		// Seperate all of the arguments into all of the arrays
-		await AsyncForEachModule.asyncForEach(args, async item => {
+		await AsyncForEachModule.prototype.asyncForEach(args, async item => {
 			if(!parseInt(item) &&! bannedGuildIDS.includes(item)){ // It is not a guild and it cannot be parsed into an int, it must be a reason
 				reasonArray.push(item)
 			}
@@ -70,7 +70,7 @@ export default class UnblacklistGuild extends Command {
 		})
 
 		// Now go inside every guild and remove it to the txt file
-		await AsyncForEachModule.asyncForEach(guildIDArray, async ID => {
+		await AsyncForEachModule.prototype.asyncForEach(guildIDArray, async ID => {
 			try {
 				bannedGuildIDS = bannedGuildIDS.replace(`${ID}\n`, ``);
 				bannedGuildsWriteStream.write(bannedGuildIDS);

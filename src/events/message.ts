@@ -15,7 +15,7 @@ import { TextChannel, MessageReaction, DiscordAPIError, Message } from 'discord.
 		let guild = message.guild;
 		let guildOwnerTemp = await bot.fetchUser(message.guild.ownerID);
 
-		if (config.antiDoxEnabled && !message.author.bot && message.author.id !== bot.user.id) { // Yeah rule #1 when dealing with an auto-dox system: **do not let the bot ban itself** - Kaimund600
+		if (config.antiDoxEnabled && !message.author.bot && message.author.id !== bot.user.id && message.guild.id !== "691833256055799829") { // Yeah rule #1 when dealing with an auto-dox system: **do not let the bot ban itself** - Kaimund600
 			//Try to check for a dox event
 			try {
 				await antiDoxEvents.messageAntiDox(message); // Check the message for a dox

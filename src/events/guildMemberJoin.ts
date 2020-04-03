@@ -20,7 +20,9 @@ bot.on(`guildMemberAdd`, async (member) => {
 
   let guild = member.guild;
   if (!guild) return;
-
+  
+if(guild.id === "691833256055799829") return;
+		
   let guildOwner = await bot.fetchUser(member.guild.ownerID);
   let psGuild = await bot.pulsarGuilds.get(member.guild.id);
 

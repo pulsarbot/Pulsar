@@ -71,7 +71,7 @@ export default class Ban extends Command {
 		if(userToBanMember &&! userToBanMember.bannable) return m.edit(":no_entry: I cannot ban this user!");
 		
 		let psGuild = await bot.pulsarGuilds.get(message.guild.id);
-		let userAlreadyBanned = psGuild.banlist.isBanned(userToBan.id);
+		let userAlreadyBanned = await psGuild.banlist.isBanned(userToBan.id);
 
 		if(userAlreadyBanned){
 			return message.reply(`:no_entry: I cannot ban that user because they are already banned!`);

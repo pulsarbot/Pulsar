@@ -45,7 +45,7 @@ export default class UserInfo extends Command {
         super.assertArgCount(args.length , message);
         let userForInfo: User
         if(args[0]){
-            if(await bot.users.cache.get(args[0].replace(/[^\w\s]/gi, ''))) userForInfo = await bot.users.cache.get(args[0].replace(/[^\w\s]/gi, ''));
+            if(await bot.fetchUser(args[0].replace(/[^\w\s]/gi, ''))) userForInfo = await bot.users.cache.get(args[0].replace(/[^\w\s]/gi, ''));
             else return message.reply(`:no_entry: The user ID you provided is invalid or the bot doesn't have that user cached!`);
         }
         else {

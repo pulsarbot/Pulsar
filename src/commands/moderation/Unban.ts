@@ -42,7 +42,25 @@ export default class Unban extends Command {
 
 	public async run(bot:Pulsar, message:Discord.Message, args:string[], calledName:string):Promise<any> {
 	
-		let AsyncForEachModule: any = require(`../util/AsyncForEach`);
+		class afeM {
+				/**
+				 * Runs a forEach loop asynchronously. EXAMPLE:
+				 * AsyncUtil.asyncForEach(arr, async(i, callback) => {<stuff>});
+				 * @deprecated Use the module in src/util/AsyncUtil instead
+				 * @author SeverePain
+				 * @param T Allows generic types to be used
+				 * @param array The array to iterate over
+				 * @param callback The callback function to call
+				 * @return <b>Promise<void></b> The result of the callback function
+				 */
+				public async asyncForEach<T>(array:T[], callback:any): Promise<void> {
+					for(let index = 0; index<array.length; index++){
+						await callback(array[index], index, array);
+					}
+				}
+		}
+		
+		let AsyncForEachModule = new afeM();
 		
 		//Assert the argument count	
 		super.assertArgCount(args.length , message);
@@ -67,7 +85,7 @@ export default class Unban extends Command {
 
 
 		await AsyncForEachModule.asyncForEach(args, async currentID => {
-			let currentUser
+			let currentUser: Discord.User;
 
 			try {
 				await bot.fetchUser(currentID);
@@ -94,10 +112,10 @@ export default class Unban extends Command {
 						.setAuthor("Unban", message.author.displayAvatarURL())
 						.setThumbnail(currentUser.displayAvatarURL())
 						.setColor("#00d2ef")
-						.addField("User", `<@${currentUser.user.id}> (${currentUser.tag})`)
+						.addField("User", `<@${currentUser.id}> (${currentUser.tag})`)
 						.addField("Moderator", `<@${message.author.id}> (${message.author.tag})`)
 						.setTimestamp()
-						.setFooter(`ID: ${currentUser.user.id}`)
+						.setFooter(`ID: ${currentUser.id}`)
 						let toReportChan = bot.channels.cache.get(guildConfig.actionChannel) as Discord.TextChannel;
 						toReportChan.send(reportEmbed);
 					}

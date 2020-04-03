@@ -11,6 +11,8 @@ import Discord, { GuildMember, MessageEmbed, TextChannel, Message } from "discor
 import PulsarGuild from "../../handlers/PulsarGuild";
 import fs, { WriteStream } from 'fs';
 
+import AsyncForEachModule from '../util/AsyncForEach';
+
 export default class BlacklistGuild extends Command {
 	//Define the fields for the command
 	private static commandFields = new CommandField(
@@ -44,7 +46,6 @@ export default class BlacklistGuild extends Command {
 
 	public async run(bot:Pulsar, message:Discord.Message, args:string[], calledName:string):Promise<any> {
 		
-		let AsyncForEachModule: any = require(`../util/AsyncForEach`);
 
 		//Assert the argument count
 		super.assertArgCount(args.length, message);
@@ -54,7 +55,7 @@ export default class BlacklistGuild extends Command {
 		let reasonArray: string[] = [];
 
 		// Seperate all of the arguments into all of the arrays
-		await AsyncForEachModule.asyncForEach(args, async item => {
+		await AsyncForEachModule.prototype.asyncForEach(args, async item => {
 			if(!parseInt(item) &&! bot.guilds.cache.has(item)){ // It is not a guild and it cannot be parsed into an int, it must be a reason
 				reasonArray.push(item)
 			}
@@ -71,7 +72,7 @@ export default class BlacklistGuild extends Command {
 
 
 		// Now go inside every guild and leave it + add it to the txt file
-		await AsyncForEachModule.asyncForEach(guildIDArray, async ID => {
+		await AsyncForEachModule.prototype.asyncForEach(guildIDArray, async ID => {
 			try {
 			let guild = await bot.pulsarGuilds.get(ID);
 			if(!bannedGuildIDS.includes(ID)){

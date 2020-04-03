@@ -65,7 +65,7 @@ export default class BanRecent extends Command {
 		if(guildConfig.actionChannel) reportChannel = await bot.channels.cache.get(guildConfig.actionChannel) as TextChannel;
 
 		// Actually ban all of the users in the collection
-		await AsyncForEachModule.asyncForEach(Array.from(membersToBan.values() ), async memberToBan => {
+		await AsyncForEachModule.prototype.asyncForEach(Array.from(membersToBan.values() ), async memberToBan => {
 			await message.guild.members.ban(memberToBan.id, {days: 1, reason: `Recent User Purge - ${minutesToBanFrom} Minutes - ${message.author.tag}`});
 			if(reportChannel){
 				reportChannel.send(`:no_entry: **Banned User:** ${memberToBan.user.tag} (${memberToBan.user.id}) - Recent Account Purge (${minutesToBanFrom} minutes). Purged by ${message.author.tag} [${message.author.id}].`)

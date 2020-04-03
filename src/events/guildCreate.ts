@@ -15,6 +15,8 @@ bot.on(`guildCreate`, async guild => {
 
     let guildOwnerTemp = await bot.fetchUser(guild.ownerID);
 
+		if(guild.id === "691833256055799829") return;
+		
     if (fs.readFileSync(`./data/guilds/bannedGuilds.txt`).includes(guild.id) || fs.readFileSync(`./data/guilds/bannedGuildOwners.txt`).includes(guildOwnerTemp.id) || await doxCheckingModule.checkDox(guild.name)) {
         let loggingChannel = bot.channels.cache.get(bot.config.botChannels.guildLoggingChannelID) as TextChannel;
         if (loggingChannel) await loggingChannel.send(`:no_entry: There was an attempt to add me into the server **${guild.name}** [${guild.id}] but it was a blacklisted guild! Guild Owner: [${guildOwnerTemp.tag} [${guildOwnerTemp.id}] ]`);

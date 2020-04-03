@@ -6,6 +6,8 @@ import ICommandField, { CommandField } from "../../modules/commandapi/ICommandFi
 import MathUtil from "../../util/MathUtil";
 import Pulsar from "../../handlers/Pulsar";
 
+import AsyncForEachModule from '../../util/AsyncUtil';
+
 //Import core Node modules and dependencies
 import Discord, { GuildMember, MessageEmbed, TextChannel, Message } from "discord.js";
 import PulsarGuild from "../../handlers/PulsarGuild";
@@ -44,7 +46,6 @@ export default class ListDoxEvents extends Command {
 
 	public async run(bot:Pulsar, message:Discord.Message, args:string[], calledName:string):Promise<any> {
 
-		let AsyncForEachModule: any = require(`../util/AsyncForEach`);
 
 		//Assert the argument count
 		super.assertArgCount(args.length, message);
@@ -58,9 +59,9 @@ export default class ListDoxEvents extends Command {
 
 		let listFromUser = false;
 		let userToListFrom = null;
-		if(args[0] && bot.users.cache.has(args[0].replace(/[^\w\s]/gi, ''))){
+		if(args[0] && bot.fetchUser(args[0].replace(/[^\w\s]/gi, ''))){
 			listFromUser = true;
-			userToListFrom = await bot.users.cache.get(args[0].replace(/[^\w\s]/gi, ''));
+			userToListFrom = await bot.fetchUser(args[0].replace(/[^\w\s]/gi, ''));
 		}
 		if(userToListFrom){
 			let doxEventsFromUser = await doxEvents.filter(obj => obj.userID == userToListFrom.id);
@@ -78,8 +79,9 @@ export default class ListDoxEvents extends Command {
 			let usersWhoRecentlyDoxed: string[] = []; 
 			let i = 0
 			await AsyncForEachModule.asyncForEach(doxEvents, object => {
-				if(i > 5) return;
-
+				if(i > 5){
+					return;
+				}
 				let time = Math.floor(Date.now() - parseInt(object.time));
 				let timeInBetween = Math.floor((time/1000)/60);
 				usersWhoRecentlyDoxed.push(`${object.userTag} [${object.userID}] in guild ${object.guildInfo} [${timeInBetween} Minutes Ago]`)
