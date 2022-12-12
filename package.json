@@ -35,7 +35,7 @@
     "dotenv": "^8.2.0",
     "edit-json-file": "^1.4.0",
     "ejs": "^3.0.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-session": "^1.17.0",
     "faker": "^4.1.0",
     "fortune-teller": "^0.1.2",
